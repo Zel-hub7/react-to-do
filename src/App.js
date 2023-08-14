@@ -4,8 +4,7 @@ function App() {
   return(
     <div>
       <TodoApp />
-      This is my todo List app
-    </div>
+   </div>
   )
 }
 export default App;

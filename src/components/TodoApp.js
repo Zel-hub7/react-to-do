@@ -1,13 +1,14 @@
-import React from "react";
-import Header from "./Header";
-import TodosLogic from "./TodosLogic";
+import './todo.css';
+import Header from './Header';
+import TodoLogic from './TodoLogic';
 
 function TodoApp() {
   return (
-    <>
+    <div className="topContainer">
       <Header />
-      <TodosLogic />
-    </>
+      <TodoLogic />
+    </div>
   );
 }
+
 export default TodoApp;

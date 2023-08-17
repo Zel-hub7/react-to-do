@@ -1,10 +1,12 @@
-import TodoApp from "./components/TodoApp";
+import './App.css';
+import TodoApp from './components/TodoApp';
 
 function App() {
-  return(
-    <div>
+  return (
+    <div className="appContainer">
       <TodoApp />
-   </div>
-  )
+    </div>
+  );
 }
+
 export default App;

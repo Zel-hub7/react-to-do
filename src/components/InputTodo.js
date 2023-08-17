@@ -1,9 +1,45 @@
-const InputTodo = () => {
+import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
+import plus from './assets/plus.png';
+import './todo.css';
+
+function InputTodo({ dispatch }) {
+  const inputRef = useRef(null);
+
+  function addData() {
+    if (inputRef.current.value) {
+      const data = {
+        todoTask: inputRef.current.value,
+        verified: false,
+      };
+      dispatch({ type: 'ADD', payload: data });
+      inputRef.current.value = '';
+    }
+  }
+
+  function handleImgKeyPress(event) {
+    if (event.key === 'Enter') {
+      addData();
+    }
+  }
+
   return (
-    <form>
-      <input type="text" placeholder="Add Todo..." />
-      <button>Submit</button>
-    </form>
+    <div className="inputContainer">
+      <input type="text" ref={inputRef} placeholder="Add your task..." />
+      <button
+        className="imgButton"
+        onClick={addData}
+        onKeyDown={handleImgKeyPress}
+        type="button"
+      >
+        <img src={plus} alt="" />
+      </button>
+    </div>
   );
+}
+
+InputTodo.propTypes = {
+  dispatch: PropTypes.func.isRequired,
 };
+
 export default InputTodo;

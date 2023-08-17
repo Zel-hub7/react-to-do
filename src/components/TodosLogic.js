@@ -3,6 +3,13 @@ import InputTodo from "./InputTodo";
 import TodosList from "./TodosList";
 
 const TodosLogic = () => {
+  const delTodo = (id) => {
+    setTodos([
+      ...todos.filter((todo) => {
+        return todo.id !== id;
+      }),
+    ]);
+  };
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -24,7 +31,7 @@ const TodosLogic = () => {
   return (
     <div>
         <InputTodo />
-        <TodosList todosProps = {todos} setTodos={setTodos} />
+        <TodosList delTodo={delTodo} todosProps = {todos} setTodos={setTodos} />
     </div>
   );
 };
